@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>Simple Array App</title>
+</head>
+<body>
+
+  <h3>Enter an item:</h3>
+  <input type="text" id="itemInput">
+  <button onclick="addItem()">Add</button>
+  <button onclick="displayItems()">Display</button>
+
+  <ul id="itemList"></ul>
+
+  <script>
+    const items = [];
+
+    function addItem() {
+      const input = document.getElementById("itemInput");
+      const value = input.value.trim();
+      if (value !== "") {
+        items.push(value);
+        input.value = "";
+      }
+    }
+    function displayItems() {
+        const list = document.getElementById("itemList");
+        list.innerHTML = "";
+        for (let i = 0; i < items.length; i++) {
+            const li = document.createElement("li");
+            li.textContent = `Element ${i + 1} = ${items[i]}`;
+            list.appendChild(li);
+        }
+    }
+  </script>
+</body>
+</html>
+
+
